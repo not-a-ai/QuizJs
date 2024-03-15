@@ -17,3 +17,13 @@ main {
   justify-content: space-evenly;
   height: 50%;
 }
+
+#animated_button {
+  cursor: pointer;
+  animation: pular 0.5s ease infinite alternate;
+}
+
+@keyframes pular {
+  0% { transform: translateY(0); } /* Sem deslocamento vertical */
+  100% { transform: translateY(-10px); } /* Deslocamento para cima */
+}

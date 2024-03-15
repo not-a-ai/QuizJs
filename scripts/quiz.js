@@ -87,7 +87,7 @@ function mostrarResultados() {
 
   let buttonBack = document.createElement("button");
   buttonBack.setAttribute("id", "responder");
-  buttonBack.addEventListener("click", () => (window.location = "/"));
+  buttonBack.addEventListener("click", () => (window.location = "/trilhas.html"));
   buttonBack.textContent = "Voltar";
 
   divResposta.appendChild(buttonRedo);
