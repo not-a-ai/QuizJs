@@ -15,18 +15,28 @@ body {
 }
 
 footer {
-  background-color: #090909;
+  background-color: rgba(9,9,9);
   font-size: 12px;
   font-weight: lighter;
-  width: 100vw;
+  width: 100%;
   color: #FFFFFF;
   padding: 0.5% 0;
   display: flex;
   justify-content: center;
 }
 
+a {
+  text-decoration: none;
+  color: #1A1A1A;
+}
+
 .logo1 {
   width: 200px;
+  margin-top: 1rem;
+}
+.logo2 {
+  width: 200px;
+  margin-top: 1rem;
 }
 
 button {
@@ -42,11 +52,6 @@ button {
   transition: transform 0.3s ease-in-out; 
 }
 
-button a {
-  text-decoration-line: none;
-  mix-blend-mode: multiply;
-}
-
-button:hover{
+.button:hover{
   transform: scale(1.1);
 }

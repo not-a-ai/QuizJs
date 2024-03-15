@@ -1,42 +1,22 @@
 let respondida = false;
 let perguntaAtual = 0;
 
-function filtrarPerguntas() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const quantidade = urlParams.get('q');
-
-  if (quantidade && quantidade <= 10) {
-    let listaFiltrada = []
-
-    while(listaFiltrada.length < quantidade) {
-      const pergunta = perguntas[Math.floor(Math.random() * perguntas.length)];
-      if (listaFiltrada.indexOf(pergunta) == -1) {
-        listaFiltrada.push(pergunta)
-      }
-    }
-    
-    perguntas = [...listaFiltrada]
-  }
-}
 
 function mostrarResultados() {
   // Limpa a div do quadro-quiz
   let quadroQuiz = document.getElementById("quadro-quiz");
   quadroQuiz.innerHTML = "";
 
-  quadroQuiz.setAttribute('class', 'animate__animated animate__backInUp')
+  quadroQuiz.setAttribute('class', 'animate__animated animate__backInUp result-quiz')
 
   // Titulo
-  let divHeader = document.createElement("div");
-  divHeader.setAttribute("class", "flex-row");
+  let divHeader = document.createElement("button");
+  divHeader.setAttribute("class", "result");
 
   let h2 = document.createElement("h2");
   h2.textContent = "Resultado";
   divHeader.appendChild(h2);
 
-  let divResultado = document.createElement("div");
-  divResultado.setAttribute("id", "titulo-resultado");
-  divHeader.appendChild(divResultado);
 
   quadroQuiz.appendChild(divHeader);
 
@@ -60,7 +40,7 @@ function mostrarResultados() {
     }
 
     let h3 = document.createElement("h3");
-    h3.textContent = (acertou ? `✅ ` : `❌ `) + pergunta.questao;
+    h3.textContent = pergunta.questao;
 
     div.appendChild(h3);
 
@@ -91,12 +71,11 @@ function mostrarResultados() {
       li.setAttribute("class", classes);
       ul.appendChild(li);
     }
-    
+    div.setAttribute("class", "result-questions");
     div.appendChild(ul);
     quadroQuiz.appendChild(div);
   }
 
-  document.getElementById('titulo-resultado').innerHTML += `${acertos} ✅    ❌ ${erros}`;
 
   let divResposta = document.createElement("div");
   divResposta.setAttribute("id", "resposta");
@@ -108,7 +87,7 @@ function mostrarResultados() {
 
   let buttonBack = document.createElement("button");
   buttonBack.setAttribute("id", "responder");
-  buttonBack.addEventListener("click", () => (window.location = "/"));
+  buttonBack.addEventListener("click", () => (window.location = "/trilhas.html"));
   buttonBack.textContent = "Voltar";
 
   divResposta.appendChild(buttonRedo);
@@ -217,11 +196,11 @@ function perguntasNoHtml(numeroQuestao) {
   quadroQuiz.innerHTML = "";
 
   // Titulo da questão
-  let h2 = document.createElement("h2");
+  let h2 = document.createElement("p");
   h2.setAttribute("id", "pergunta");
   h2.textContent = (perguntaAtual + 1) + ' - ' + perguntas[numeroQuestao].questao;
   quadroQuiz.appendChild(h2);
-
+  console.log(perguntas[0])
   let divQuestoes = document.createElement("div");
   divQuestoes.setAttribute("id", "questoes");
 
@@ -233,7 +212,7 @@ function perguntasNoHtml(numeroQuestao) {
       onClickAlternativa(numeroQuestao, i)
     );
 
-    let h2Alternativa = document.createElement("h2");
+    let h2Alternativa = document.createElement("p");
     h2Alternativa.textContent = perguntas[numeroQuestao].alternativas[i];
 
     divAlternativa.appendChild(h2Alternativa);
@@ -258,10 +237,8 @@ function perguntasNoHtml(numeroQuestao) {
   quadroQuiz.setAttribute('class', 'animate__animated animate__fadeInRight')
 }
 
-// filtrar perguntas pela querystring "q"
-filtrarPerguntas();
+
 
 // Começar mostrando a primeira pergunta (perguntaAtual: 0)
 perguntasNoHtml(perguntaAtual);
-
 
