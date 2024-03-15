@@ -42,6 +42,11 @@ button {
   transition: transform 0.3s ease-in-out; 
 }
 
+button a {
+  text-decoration-line: none;
+  mix-blend-mode: multiply;
+}
+
 button:hover{
   transform: scale(1.1);
 }
