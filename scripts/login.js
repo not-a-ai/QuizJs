@@ -34,7 +34,6 @@ function onClickLogin() {
     if (checkLogin(userName, passwordText)) {
         window.open("index.html", '_self');     // incluir aqui a página do quiz
     } else {
-        console.log("Falha no login");          // incluir aqui a exibição da mensagem de erro
         document.getElementById("Warning-Frame").classList.remove("hidden");
         setTimeout(function() {
             document.getElementById("Warning-Frame").classList.add("hidden");
