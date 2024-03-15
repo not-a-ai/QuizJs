@@ -29,11 +29,15 @@ function checkLogin(userName, passwordText) {
 function onClickLogin() {
     let userName = document.getElementById("unique_id").value;
     let passwordText = document.getElementById("session_pw").value;
+
+    // Apaga os valores digitados nos campos
     document.getElementById("unique_id").value = "";
     document.getElementById("session_pw").value = "";
     if (checkLogin(userName, passwordText)) {
-        window.open("index.html", '_self');     // incluir aqui a página do quiz
+        // Abre a página inicial do quiz
+        window.open("quiz-home.html", '_self');
     } else {
+        // Exibe mensagem de erro
         document.getElementById("Warning-Frame").classList.remove("hidden");
         setTimeout(function() {
             document.getElementById("Warning-Frame").classList.add("hidden");

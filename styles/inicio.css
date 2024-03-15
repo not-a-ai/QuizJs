@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#quiz {
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+@media (min-width: 200px) and (max-width: 768px) {
+    #quiz {
+        width: 90%;
+    }
+}

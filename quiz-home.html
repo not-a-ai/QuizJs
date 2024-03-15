@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="./styles/inicio.css">
+    <link rel="stylesheet" href="./styles/card.css">
+    <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon">
+    <title>Quiz</title>
+
+</head>
+
+<body>
+    <header>
+        <img id="quiz" src="./images/logo2.png" width="400px" alt="">
+    </header>
+
+    <section class="cards">
+        <div class="flip-card">
+            <h1 id="titulo-card">Trilha 1</h1>
+            <div class="flip-card-inner">
+                <div id="card-1" class="flip-card-front cards-quiz">
+
+                </div>
+                <div class="flip-card-back">
+                    <h1>Quiz sobre Educação Financeira</h1>
+                    <p>Vamos testar seus conhecimentos?</p>
+
+                    <div class="botoes">
+                        <button class="iniciar"> <a href="/pages/quiz1?q=5.html" target="_blank">Iniciar <br/>(5 perguntas)</a></button>
+                        <button class="iniciar"> <a href="/pages/quiz1.html?q=10" target="_blank">Iniciar <br/>(10 perguntas)</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./scripts/cards.js"></script>
+</body>
+
+</html>
