@@ -224,6 +224,16 @@ function perguntasNoHtml(numeroQuestao) {
   let divResposta = document.createElement("div");
   divResposta.setAttribute("id", "resposta");
 
+  // Botão Voltar
+    let buttonVoltar = document.createElement("button");
+    let aElement = document.createElement("a");
+    aElement.setAttribute("href", "/trilhas.html");
+    
+    let aText = document.createTextNode("Voltar");
+    aElement.append(aText);
+    buttonVoltar.append(aElement);
+    divResposta.appendChild(buttonVoltar);
+
   // Botão de responder
   let button = document.createElement("button");
   button.setAttribute("id", "responder");
@@ -231,7 +241,7 @@ function perguntasNoHtml(numeroQuestao) {
   button.addEventListener("click", () => onClickResponder(numeroQuestao));
   button.textContent = "Responder";
 
-  divResposta.appendChild(button);
+  divResposta.appendChild(button);  
   quadroQuiz.appendChild(divResposta);
 
   quadroQuiz.setAttribute('class', 'animate__animated animate__fadeInRight')
