@@ -13,6 +13,7 @@ main {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
+  justify-items: center;
 }
 
 main section {
@@ -59,12 +60,39 @@ section h3 {
   background-color: #fff;
 }
 
+#progresso-card {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  width: 100%;
+  align-items: center;
+  color: #04C900;
+  gap: 1rem;
+} 
+  #progresso-card img {
+    width: 50%;
+    border-radius: 50%;
+  }
+
 .dashbox {
   background-color: #1A1A1A;
   border-radius: 16px;
   height: 30rem;
   margin: 1rem 0.5rem ;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
+
+.dashbox button {
+  margin: 1rem;
+}
+
+button:hover{
+  transform: scale(1.05);
+
+}
+
 
 .trilhas {
   display: flex;
@@ -78,6 +106,30 @@ section h3 {
   flex-direction: column;
   justify-content: space-around;
 }
+
+.progress-container {
+  width: 100%;
+  border: #04C900 solid 4px;
+  border-radius: 20px;
+  margin: 16px 0;
+}
+
+.progress-bar {
+  width: 10%;
+  height: 15px;
+  background-color: #04C900;
+}
+
+#medalha-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+}
+
 
 
 
