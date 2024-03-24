@@ -247,8 +247,24 @@ function perguntasNoHtml(numeroQuestao) {
   quadroQuiz.setAttribute('class', 'animate__animated animate__fadeInRight')
 }
 
+function readQuestions() {
+  // Verifica se o dispositivo/navegador possui a funcionalidade LocalStorage
+  if(!window.localStorage) {
+    return;
+  }
 
+  var localQuestions = window.localStorage.getItem('saved-questions' + trilha);
+  if (localQuestions) {
+    perguntas = JSON.parse(localQuestions);
+  }
+}
+
+function saveQuestions() {
+  window.localStorage.setItem('saved-questions' + trilha, JSON.stringify(perguntas));
+}
+
+// Leitura das perguntas salvas (LocalStorage)
+readQuestions();
 
 // Começar mostrando a primeira pergunta (perguntaAtual: 0)
 perguntasNoHtml(perguntaAtual);
-
