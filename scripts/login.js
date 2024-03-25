@@ -35,7 +35,7 @@ function onClickLogin() {
     document.getElementById("session_pw").value = "";
     if (checkLogin(userName, passwordText)) {
         // Abre a página inicial do quiz
-        window.open("trilhas.html", '_self');
+        window.location.replace("trilhas.html");
     } else {
         // Exibe mensagem de erro
         document.getElementById("Warning-Frame").classList.remove("hidden");

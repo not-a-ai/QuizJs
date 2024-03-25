@@ -1,0 +1,61 @@
+/* Reset CSS para remover margens e preenchimentos padrão */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 99.5%;
+    width: 18.75rem; /* 300px para rem */
+    background-color: #1a1a1a;
+    padding: 0.75rem; /* 12px para rem */
+}
+
+.sidebar .logo {
+    display: flex;
+    padding: 1rem 0 0 1rem; /* 16px, 0, 0, 16px para rem */
+}
+
+.sidebar .logo img {
+    width: 10rem;
+}
+
+.sidebar__navigation {
+    border-radius: 0.5rem; /* 8px para rem */
+    cursor: pointer;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    margin-top: 1.25rem; /* 20px para rem */
+    padding: 0 1.25rem 0.625rem 1.25rem; /* 0, 20px, 10px, 20px para rem */
+}
+
+.sidebar nav ul li {
+    padding: 0.625rem 0; /* 10px, 0 para rem */
+}
+
+.sidebar nav ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem; /* 14px para rem */
+}
+
+.sidebar nav ul li .fa {
+    font-size: 1.25rem; /* 20px para rem */
+    margin-right: 0.625rem; /* 10px para rem */
+    font-weight: 300;
+}
+
+.sidebar nav ul li a:hover {
+    color: #ffffff;
+}
+
+#panel {
+    color: #ffffff;
+}
