@@ -9,24 +9,37 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/x-icon" href="https://online.igti.com.br/accounts/1/files/309117/download?verifier=u5CehW3uypIuN5ad6ZLMJfq7pZtNYduDy2gd9Zr8">
     <title>Painel de Controle</title>
-    <script src="./scripts/admin.js"></script>
+    <script src="/scripts/LocalStorage.js"></script>
+    <script src="/scripts/admin.js"></script>
 </head>
     <body>
+        <div class="sidebar">
+            <nav class="sidebar__navigation">
+                <div class="logo">
+                    <img src="/images/logo2.png" alt="Logo"/>
+                </div>
+                <ul>
+                    <li><a href="" onclick="onMenu('User')"><spam class="fa fa-user"></spam><spam>Usuários</spam></a></li>
+                    <li><a href="" onclick="onMenu('Quest')"><spam class="fa fas fa-book"></spam><spam>Questões</spam></a></li>
+                    <li><a href="" onclick="onMenu('Config')"><spam class="fa fa-cog"></spam><spam>Configurações</spam></a></li>
+                    <li><a href="" onclick="onMenu('Exit')"><spam class="fa fa-sign-out-alt"></spam><spam>Sair</spam></a></li>
+                </ul>
+            </nav>
+        </div>
         <main>
-            <div class="sidebar">
-                <nav class="sidebar__navigation">
-                    <div class="logo">
-                        <img src="/images/logo2.png" alt="Logo"/>
-                    </div>
-                    <ul>
-                        <li><a href="" onclick="onMenu('User')"><spam class="fa fa-user"></spam><spam>Usuários</spam></a></li>
-                        <li><a href="" onclick="onMenu('Quest')"><spam class="fa fas fa-book"></spam><spam>Questões</spam></a></li>
-                        <li><a href="" onclick="onMenu('Config')"><spam class="fa fa-cog"></spam><spam>Configurações</spam></a></li>
-                        <li><a href="" onclick="onMenu('Exit')"><spam class="fa fa-sign-out-alt"></spam><spam>Sair</spam></a></li>
-                    </ul>
-                </nav>
+            <div id="userMenu" class="menu-user hidden">
+                Olá!
             </div>
-            <div id="panel">Conteúdo</div>
+            <div id="questMenu" class="menu-quest">
+                <div class="header">
+                    <button onclick="fillQuestions(1)">Trilha 1</button>
+                    <button onclick="fillQuestions(2)">Trilha 2</button>
+                    <button onclick="fillQuestions(3)">Trilha 3</button>
+                </div>
+                <div id="questBody" class="quest-body">
+                    Teste
+                </div>
+            </div>
         </main>
         <footer>
             <p>Todos os direitos reservados | XP Educação © 2024</p>
