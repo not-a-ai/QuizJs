@@ -1,3 +1,5 @@
+let currentQuestion = 0;
+
 function onMenu(menuItem) {
     let item;
     hideAll();
@@ -7,6 +9,8 @@ function onMenu(menuItem) {
     } else if (menuItem=='Quest') {
         item = document.getElementById("questMenu");
         item.setAttribute("class", "menu-quest");
+    } else if (menuItem=='Exit') {
+        window.location.replace("index.html");
     }
 }
 
@@ -22,16 +26,15 @@ function hideAll() {
     item.setAttribute("class", "hidden");
 }
 
+/*
+    Gerenciamento de questões
+*/
 function fillQuestions(selTrilha) {
     trilha = selTrilha-1;
     readQuestions();
 
-    // Limpa a div do quadro-quiz
     let quadroQuiz = document.getElementById("questBody");
     quadroQuiz.innerHTML = "";
-
-    // Titulos
-    quadroQuiz.setAttribute('class', 'animate__animated animate__backInUp result-quiz')
 
     let ul = document.createElement("ul");
     ul.setAttribute("id", "questionList");
@@ -44,28 +47,29 @@ function fillQuestions(selTrilha) {
         let div = document.createElement("div");
         div.setAttribute("class", "question_item");
         
+        // Botão Editar
         let btnEd = document.createElement("button");
         btnEd.addEventListener("click", () => onClickEdit(i));
         btnEd.setAttribute("class", "fa fa-pen");
         div.appendChild(btnEd);
         
+        // Botão Mover para cima
         let btnUp = document.createElement("button");
         btnUp.addEventListener("click", () => onClickMoveUp(i));
-        
         let imgU = document.createElement("img");
         imgU.setAttribute("src", "/images/up.png");
         btnUp.appendChild(imgU);
-
         div.appendChild(btnUp);
         
+        // Botão Mover para baixo
         let btnDwn = document.createElement("button");
         btnDwn.addEventListener("click", () => onClickMoveDown(i));
-        
         let imgD = document.createElement("img");
         imgD.setAttribute("src", "/images/down.png");
         btnDwn.appendChild(imgD);
         div.appendChild(btnDwn);
         
+        // Texto da pergunta
         let divQuest = document.createElement("div");
         divQuest.setAttribute("class", "question_item_text");
         divQuest.textContent = pergunta.questao;
@@ -73,11 +77,15 @@ function fillQuestions(selTrilha) {
         div.appendChild(divQuest);
         li.appendChild(div);
         ul.appendChild(li);
-
-        let questFooter = document.getElementById("questFooter");
-        questFooter.removeAttribute("class");
-        questFooter.setAttribute("class", "quest-footer");
     }
+    // Exibe o rodapé
+    let questFooter = document.getElementById("questFooter");
+    questFooter.removeAttribute("class");
+    questFooter.setAttribute("class", "quest-footer");
+    let editFooter = document.getElementById("editFooter");
+    editFooter.removeAttribute("class");
+    editFooter.setAttribute("class", "hidden");
+
     ul.setAttribute("class", "result-questions");
     quadroQuiz.appendChild(ul);
 }
@@ -136,11 +144,11 @@ function onClickMoveDown(question) {
     }, 500);
 }
 
-function onClickCancel() {
+function onCancel() {
     fillQuestions(trilha + 1);
 }
 
-function onClickSave() {
+function onSaveReorder() {
     let questionList = document.getElementById("questionList");
     let questionItens = questionList.children;
     let idText;
@@ -156,4 +164,116 @@ function onClickSave() {
     }
     perguntas = newPerguntas;
     saveQuestions();
+}
+
+/*
+    Funções de edição das questões
+*/
+
+// Editar a questão selecionada
+//      Se questionNumber = -1, abre os campos em branco para nova questão.
+function onClickEdit(questionNumber) {
+    currentQuestion = questionNumber;
+
+    let quadroMain = document.getElementById("questBody");
+    quadroMain.innerHTML = "";
+
+    // Pergunta
+    let questionLabel = document.createElement("label");
+    questionLabel.textContent = "Pergunta:";
+    questionLabel.setAttribute("for", "pergunta");
+    quadroMain.appendChild(questionLabel);
+    let h2 = document.createElement("textarea");
+    h2.setAttribute("id", "pergunta");
+    if (questionNumber >= 0) {
+        h2.value = perguntas[questionNumber].questao;
+    }
+    quadroMain.appendChild(h2);
+
+    // Alternativas
+    let alternativeLabel = document.createElement("label");
+    alternativeLabel.textContent = "Alternativas:";
+    alternativeLabel.setAttribute("for", "questoes");
+    quadroMain.appendChild(alternativeLabel);
+    let divQuestoes = document.createElement("div");
+    divQuestoes.setAttribute("id", "questoes");
+    let selectCorrect = document.createElement("select");
+    let numAlternativas = 0;
+    if (questionNumber < 0) {
+        numAlternativas = 4;
+    } else {
+        numAlternativas = perguntas[questionNumber].alternativas.length;
+    }
+    for (let i = 0; i < numAlternativas; i++) {
+      let divAlternativa = document.createElement("textarea");
+      divAlternativa.setAttribute("class", "alternativas");
+      divAlternativa.setAttribute("id", "alt" + i);
+      if (questionNumber >= 0) {
+          divAlternativa.value = perguntas[questionNumber].alternativas[i];
+      }
+      divAlternativa.setAttribute("rows", "auto");
+      divAlternativa.addEventListener("input", function() {
+            var op = document.getElementById("op" + i);
+            op.textContent = this.value;
+      })
+      divQuestoes.appendChild(divAlternativa);
+
+      let optionElement = document.createElement("option");
+      optionElement.setAttribute("id", "op" + i);
+      if (questionNumber < 0) {
+        let initialChoices = ["A:", "B:", "C:", "D:"];
+        optionElement.textContent = initialChoices[i];
+      } else {
+        optionElement.textContent = perguntas[questionNumber].alternativas[i];
+      }
+      optionElement.value = i;
+      selectCorrect.appendChild(optionElement);
+    }
+    quadroMain.appendChild(divQuestoes);
+
+    let corretLabel = document.createElement("label");
+    corretLabel.textContent = "Qual a resposta correta?";
+    quadroMain.appendChild(corretLabel);
+    selectCorrect.setAttribute("id", "correctAnswer");
+    corretLabel.setAttribute("for", "correctAnswer");
+    if (questionNumber >= 0) {
+        selectCorrect.value = perguntas[questionNumber].alternativaCorreta;
+    }
+    quadroMain.appendChild(selectCorrect);
+
+    // Exibe o rodapé
+    let editFooter = document.getElementById("editFooter");
+    editFooter.removeAttribute("class");
+    editFooter.setAttribute("class", "quest-footer");
+    let questFooter = document.getElementById("questFooter");
+    questFooter.removeAttribute("class");
+    questFooter.setAttribute("class", "hidden");
+}
+
+// Cancela a edição da questão atual.
+function onCancelQuestion() {
+    onClickEdit(currentQuestion);
+}
+
+// Salva a questão editada.
+function onSaveQuestion() {
+    let newQuestion = {
+        "questao": document.getElementById("pergunta").value,
+        "alternativas": [
+            document.getElementById("alt0").value,
+            document.getElementById("alt1").value,
+            document.getElementById("alt2").value,
+            document.getElementById("alt3").value],
+        "alternativaCorreta": document.getElementById("correctAnswer").value,
+        "alternativaSelecionada": null
+    };
+    if (currentQuestion == -1) {
+        // Questão nova
+        perguntas[perguntas.length] = newQuestion;
+    } else {
+        // Questão existente
+        perguntas[currentQuestion] = newQuestion;
+    }
+    saveQuestions();
+    fillQuestions(trilha + 1);
 }

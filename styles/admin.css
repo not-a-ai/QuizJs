@@ -42,11 +42,15 @@ body, ul {
     padding: 0.625rem 0; /* 10px, 0 para rem */
 }
 
-.sidebar nav ul li a {
+.sidebar nav ul li button {
     color: #b3b3b3;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.875rem; /* 14px para rem */
+    background-image: none;
+    background: none;
+    border-radius: 0;
+    padding: 3px;
 }
 
 .sidebar nav ul li .fa {
@@ -55,7 +59,7 @@ body, ul {
     font-weight: 300;
 }
 
-.sidebar nav ul li a:hover {
+.sidebar nav ul li button:hover {
     color: #ffffff;
 }
 
@@ -73,6 +77,45 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#pergunta {
+    margin: 1rem;
+}
+
+.menu-quest .quest-body {
+    padding: 12px 0px;
+}
+
+.menu-quest .quest-body textarea {
+    background: none;
+    color: #ffffff;
+    margin: 8px;
+    width: 100%;
+    border-style: solid;
+    border-image: linear-gradient(to right,#ACD600, #04C900) 1;
+    padding: 8px;
+}
+
+.menu-quest .quest-body select {
+    background: none;
+    color: #ffffff;
+    width: 100%;
+    border: 1px solid #abd60065;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 10px;
+    padding: 8px;
+}
+
+.menu-quest .quest-body label {
+    padding: 8px;
+}
+
+#questoes {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
 }
 
 .menu-quest .quest-footer {

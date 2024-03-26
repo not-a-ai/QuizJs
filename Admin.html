@@ -19,10 +19,10 @@
                     <img src="/images/logo2.png" alt="Logo"/>
                 </div>
                 <ul>
-                    <li><a href="" onclick="onMenu('User')"><spam class="fa fa-user"></spam><spam>Usuários</spam></a></li>
-                    <li><a href="" onclick="onMenu('Quest')"><spam class="fa fas fa-book"></spam><spam>Questões</spam></a></li>
-                    <li><a href="" onclick="onMenu('Config')"><spam class="fa fa-cog"></spam><spam>Configurações</spam></a></li>
-                    <li><a href="index.html"><spam class="fa fa-sign-out-alt"></spam><spam>Sair</spam></a></li>
+                    <li><button onclick="onMenu('User')"><spam class="fa fa-user"></spam> Usuários</button></li>
+                    <li><button onclick="onMenu('Quest')"><spam class="fa fa-book"></spam> Questões</button></li>
+                    <li><button onclick="onMenu('Config')"><spam class="fa fa-cog"></spam> Configurações</button></li>
+                    <li><button onclick="onMenu('Exit')"><spam class="fa fa-sign-out-alt"></spam> Sair</button></li>
                 </ul>
             </nav>
         </div>
@@ -38,9 +38,13 @@
                 </div>
                 <div id="questBody" class="quest-body"></div>
                 <div id="questFooter" class="hidden">
-                    <button><spam class="fa fa-plus"></spam> Nova</button>
-                    <button onclick="onClickSave()"><spam class="fa fa-save"></spam> Salvar</button>
-                    <button onclick="onClickCancel()">Cancelar</button>
+                    <button onclick="onClickEdit(-1)"><spam class="fa fa-plus"></spam> Nova</button>
+                    <button onclick="onSaveReorder()"><spam class="fa fa-save"></spam> Salvar</button>
+                    <button onclick="onCancel()">Cancelar</button>
+                </div>
+                <div id="editFooter" class="hidden">
+                    <button onclick="onSaveQuestion()"><spam class="fa fa-save"></spam> Salvar</button>
+                    <button onclick="onCancelQuestion()">Cancelar</button>
                 </div>
             </div>
         </main>
