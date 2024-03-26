@@ -22,12 +22,12 @@
                     <li><a href="" onclick="onMenu('User')"><spam class="fa fa-user"></spam><spam>Usuários</spam></a></li>
                     <li><a href="" onclick="onMenu('Quest')"><spam class="fa fas fa-book"></spam><spam>Questões</spam></a></li>
                     <li><a href="" onclick="onMenu('Config')"><spam class="fa fa-cog"></spam><spam>Configurações</spam></a></li>
-                    <li><a href="" onclick="onMenu('Exit')"><spam class="fa fa-sign-out-alt"></spam><spam>Sair</spam></a></li>
+                    <li><a href="index.html"><spam class="fa fa-sign-out-alt"></spam><spam>Sair</spam></a></li>
                 </ul>
             </nav>
         </div>
         <main>
-            <div id="userMenu" class="menu-user hidden">
+            <div id="userMenu" class="hidden">
                 Olá!
             </div>
             <div id="questMenu" class="menu-quest">
@@ -36,8 +36,11 @@
                     <button onclick="fillQuestions(2)">Trilha 2</button>
                     <button onclick="fillQuestions(3)">Trilha 3</button>
                 </div>
-                <div id="questBody" class="quest-body">
-                    Teste
+                <div id="questBody" class="quest-body"></div>
+                <div id="questFooter" class="hidden">
+                    <button><spam class="fa fa-plus"></spam> Nova</button>
+                    <button onclick="onClickSave()"><spam class="fa fa-save"></spam> Salvar</button>
+                    <button onclick="onClickCancel()">Cancelar</button>
                 </div>
             </div>
         </main>

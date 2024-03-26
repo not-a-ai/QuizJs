@@ -75,6 +75,15 @@ main {
     justify-content: space-around;
 }
 
+.menu-quest .quest-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-quest .quest-footer button {
+    margin: 4px;
+}
+
 .menu-quest button {
     font-size: 1rem;
 }

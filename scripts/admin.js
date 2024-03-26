@@ -1,17 +1,25 @@
 function onMenu(menuItem) {
-    if (menuItem=='Exit') {
-        window.location.replace("index.html");
-        //window.open("index.html", '_self');
-    } else if (menuItem=='User') {
-        // Limpa a div do painel
-        let panel = document.getElementById("panel");
-        //panel.innerHTML = "";
-
-        // Conteúdo da página
-        let h2 = document.createElement("h1");
-        h2.textContent = "Teste";
-        panel.appendChild(h2);
+    let item;
+    hideAll();
+    if (menuItem=='User') {
+        item = document.getElementById("userMenu");
+        item.setAttribute("class", "menu-user");
+    } else if (menuItem=='Quest') {
+        item = document.getElementById("questMenu");
+        item.setAttribute("class", "menu-quest");
     }
+}
+
+function hideAll() {
+    // Menu usuário
+    let item = document.getElementById("userMenu");
+    item.removeAttribute("class");
+    item.setAttribute("class", "hidden");
+    
+    // Menu questões
+    item = document.getElementById("questMenu");
+    item.removeAttribute("class");
+    item.setAttribute("class", "hidden");
 }
 
 function fillQuestions(selTrilha) {
@@ -32,10 +40,6 @@ function fillQuestions(selTrilha) {
 
         let li = document.createElement("li");
         li.setAttribute("id","question" + (i+1));
-/*        let input = document.createElement("input");
-        input.setAttribute("type","text");
-        input.setAttribute("id", "question" + i);
-        input.setAttribute("value", pergunta.questao); */
 
         let div = document.createElement("div");
         div.setAttribute("class", "question_item");
@@ -52,12 +56,10 @@ function fillQuestions(selTrilha) {
         imgU.setAttribute("src", "/images/up.png");
         btnUp.appendChild(imgU);
 
-        //btnUp.setAttribute("class", "fa fa-cog");
         div.appendChild(btnUp);
         
         let btnDwn = document.createElement("button");
         btnDwn.addEventListener("click", () => onClickMoveDown(i));
-        //btnDwn.setAttribute("class", "fa-solid fa-triangle");
         
         let imgD = document.createElement("img");
         imgD.setAttribute("src", "/images/down.png");
@@ -71,6 +73,10 @@ function fillQuestions(selTrilha) {
         div.appendChild(divQuest);
         li.appendChild(div);
         ul.appendChild(li);
+
+        let questFooter = document.getElementById("questFooter");
+        questFooter.removeAttribute("class");
+        questFooter.setAttribute("class", "quest-footer");
     }
     ul.setAttribute("class", "result-questions");
     quadroQuiz.appendChild(ul);
@@ -128,4 +134,26 @@ function onClickMoveDown(question) {
         thisItem.removeAttribute("class");
         questionList.insertBefore(nextItem, thisItem);
     }, 500);
+}
+
+function onClickCancel() {
+    fillQuestions(trilha + 1);
+}
+
+function onClickSave() {
+    let questionList = document.getElementById("questionList");
+    let questionItens = questionList.children;
+    let idText;
+    let newPerguntas = [];
+    for (var i = 0; i < questionItens.length; i++) {
+        var idQuest = questionItens[i].id;
+        idText = '';
+        for (var j = 8; j < idQuest.length; j++) {
+            idText = idText + idQuest[j];
+        }
+        var idNumber = Number(idText) - 1;
+        newPerguntas[i] = perguntas[idNumber];
+    }
+    perguntas = newPerguntas;
+    saveQuestions();
 }

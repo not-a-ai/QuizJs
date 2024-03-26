@@ -13,7 +13,6 @@ function loadDefaultQuestions() {
         return response.json();
     })
     .then(data => {
-        console.log("Ok");
         trilha1 = data.trilha1;
         trilha2 = data.trilha2;
         trilha3 = data.trilha3;
@@ -44,5 +43,18 @@ function readQuestions() {
 }
 
 function saveQuestions() {
+    // Verifica se o dispositivo/navegador possui a funcionalidade LocalStorage
+    if(!window.localStorage) {
+        return;
+    }
+
+    // Se houver questões já salvas, apaga o que está salvo para sobrescrever
+    var localQuestions = window.localStorage.getItem('saved-questions' + trilha);
+    if (localQuestions) {
+        window.localStorage.removeItem('saved-questions' + trilha);
+        console.log("Dados excluídos");
+    }
+    
     window.localStorage.setItem('saved-questions' + trilha, JSON.stringify(perguntas));
+    console.log("Dados salvos");
 }
