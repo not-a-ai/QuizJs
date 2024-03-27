@@ -1,5 +1,3 @@
-let currentQuestion = 0;
-
 function onMenu(menuItem) {
     let item;
     hideAll();
@@ -31,6 +29,9 @@ function hideAll() {
 /*
     Gerenciamento de questões
 */
+
+let currentQuestion = 0;
+
 function fillQuestions(selTrilha) {
     trilha = selTrilha - 1;
     readQuestions();
@@ -92,7 +93,7 @@ function refreshQuestions() {
     // Exibe o rodapé
     let questFooter = document.getElementById("questFooter");
     questFooter.removeAttribute("class");
-    questFooter.setAttribute("class", "quest-footer");
+    questFooter.setAttribute("class", "item-footer");
     let editFooter = document.getElementById("editFooter");
     editFooter.removeAttribute("class");
     editFooter.setAttribute("class", "hidden");
@@ -181,9 +182,9 @@ function onSaveReorder() {
     Funções de edição das questões
 */
 
-// Editar a questão selecionada
-//      Se questionNumber = -1, abre os campos em branco para nova questão.
 function onClickEdit(questionNumber) {
+    // Editar a questão selecionada
+    //      Se questionNumber = -1, abre os campos em branco para nova questão.
     currentQuestion = questionNumber;
 
     let quadroMain = document.getElementById("questBody");
@@ -255,7 +256,7 @@ function onClickEdit(questionNumber) {
     // Exibe o rodapé
     let editFooter = document.getElementById("editFooter");
     editFooter.removeAttribute("class");
-    editFooter.setAttribute("class", "quest-footer");
+    editFooter.setAttribute("class", "item-footer");
     let questFooter = document.getElementById("questFooter");
     questFooter.removeAttribute("class");
     questFooter.setAttribute("class", "hidden");
@@ -274,13 +275,13 @@ function onClickDelete(questionNumber) {
     refreshQuestions();
 }
 
-// Cancela a edição da questão atual.
 function onCancelQuestion() {
+    // Cancela a edição da questão atual.
     onClickEdit(currentQuestion);
 }
 
-// Salva a questão editada.
 function onSaveQuestion() {
+    // Salva a questão editada.
     let newQuestion = {
         "questao": document.getElementById("pergunta").value,
         "alternativas": [
@@ -305,6 +306,8 @@ function onSaveQuestion() {
 /*
     Funções de edição de usuários
 */
+
+let userOnEdit = 0;
 
 function fillUsers() {
     let quadroMain = document.getElementById("userBody");
@@ -347,6 +350,14 @@ function fillUsers() {
         ul.appendChild(li);
     }
     quadroMain.appendChild(ul);
+
+    // Exibe o rodapé
+    let userFooter = document.getElementById("userFooter");
+    userFooter.removeAttribute("class");
+    userFooter.setAttribute("class", "item-footer");
+    let userEdit = document.getElementById("userFooterEdit");
+    userEdit.removeAttribute("class");
+    userEdit.setAttribute("class", "hidden");
 }
 
 function onDeleteUser(idUser) {
@@ -372,38 +383,133 @@ function onCancelUser() {
     fillUsers();
 }
 
-function onNewUser() {
-    // Verifica o último número de id
-    let ul = document.getElementById("userList");
-    let lastIdText = "";
-    for (let i = 4; i < ul.lastChild.id.length; i++) {
-        lastIdText += ul.lastChild.id[i];
+function onEditUser(userNumber) {
+    // Editar o usuário selecionado
+    //      Se userNumber = -1, abre os campos em branco para novo usuário.
+    userOnEdit = userNumber;
+
+    let quadroMain = document.getElementById("userBody");
+    quadroMain.innerHTML = "";
+
+    let ul = document.createElement("ul");
+    ul.setAttribute("id", "userList");
+
+    // Login
+    let liLogin = document.createElement("li");
+    let labelLogin = document.createElement("label");
+    labelLogin.textContent = "Login: ";
+    labelLogin.setAttribute("for", "login");
+    liLogin.appendChild(labelLogin);
+    let inputLogin = document.createElement("input");
+    inputLogin.setAttribute("id", "login");
+    if (userNumber >= 0) {
+        inputLogin.value = usersList[userNumber].login;
     }
-    let lastId = Number(lastIdText) + 1;
-    
-    let li = document.createElement("li");
-    li.setAttribute("id","user" + lastId);
+    liLogin.appendChild(inputLogin);
+    ul.appendChild(liLogin);
 
-    let div = document.createElement("div");
-    div.setAttribute("class", "user_item");
-    
-    // Botão Excluir
-    let btnDel = document.createElement("button");
-    btnDel.addEventListener("click", () => onDeleteUser(lastId));
-    btnDel.setAttribute("class", "fa fa-trash");
-    div.appendChild(btnDel);
+    // Nome
+    let liName = document.createElement("li");
+    let labelName = document.createElement("label");
+    labelName.textContent = "Nome: ";
+    labelName.setAttribute("for", "name");
+    liName.appendChild(labelName);
+    let inputName = document.createElement("input");
+    inputName.setAttribute("id", "name");
+    if (userNumber >= 0) {
+        inputName.value = usersList[userNumber].name;
+    }
+    liName.appendChild(inputName);
+    ul.appendChild(liName);
 
-    // Botão Editar
-    let btnEd = document.createElement("button");
-    btnEd.addEventListener("click", () => onEditUser(lastId));
-    btnEd.setAttribute("class", "fa fa-pen");
-    div.appendChild(btnEd);
-    
-    // Nome do usuário
-    let divUser = document.createElement("input");
-    divUser.setAttribute("class", "user_item_name");
+    // Senha
+    let liPw = document.createElement("li");
+    let labelPw = document.createElement("label");
+    labelPw.textContent = "Senha: ";
+    labelPw.setAttribute("for", "password");
+    liPw.appendChild(labelPw);
+    let inputPw = document.createElement("input");
+    inputPw.setAttribute("id", "password");
+    if (userNumber >= 0) {
+        inputPw.value = usersList[userNumber].password;
+    }
+    liPw.appendChild(inputPw);
+    ul.appendChild(liPw);
 
-    div.appendChild(divUser);
-    li.appendChild(div);
-    ul.appendChild(li);
+    // Tipo de usuário
+    let liType = document.createElement("li");
+    let labelType = document.createElement("label");
+    labelType.textContent = "Tipo de usuário: ";
+    labelType.setAttribute("for", "type");
+    liType.appendChild(labelType);
+    let selectType = document.createElement("select");
+    selectType.setAttribute("id", "type");
+    let op1 = document.createElement("option");
+    op1.textContent = "Aluno";
+    op1.value = "student";
+    selectType.appendChild(op1);
+    let op2 = document.createElement("option");
+    op2.textContent = "Professor";
+    op2.value = "professor";
+    selectType.appendChild(op2);
+    if (userNumber >= 0) {
+        selectType.value = usersList[userNumber].type;
+    }
+    liType.appendChild(selectType);
+    ul.appendChild(liType);
+    quadroMain.appendChild(ul);
+
+    // Exibe o rodapé
+    let userFooter = document.getElementById("userFooter");
+    userFooter.removeAttribute("class");
+    userFooter.setAttribute("class", "hidden");
+    let userEdit = document.getElementById("userFooterEdit");
+    userEdit.removeAttribute("class");
+    userEdit.setAttribute("class", "item-footer");
+}
+
+function onNewUser() {
+    onEditUser(-1);
+}
+
+function onSaveUser() {
+    // Salvar as exclusões de usuário
+    saveUsers();
+}
+
+function onSaveUserEdit() {
+    // Salva as edições feitas no usuário atual.
+
+    let newLogin = document.getElementById("login").value;
+    let newPw = document.getElementById("password").value;
+    let newName = document.getElementById("name").value;
+    let newType = document.getElementById("type").value;
+
+    // Verifica a existência de duplicidades.
+    for (let i = 0; i < usersList.length; i++) {
+        if (i != userOnEdit) {
+            if (newLogin == usersList[i].login) return;
+        }
+    }
+    if (userOnEdit < 0) {
+        // Novo usuário
+        let newUser = {
+            "login": newLogin,
+            "password": newPw,
+            "name": newName,
+            "type": newType
+        };
+        usersList.push(newUser);
+    } else {
+        // Usuário existente
+        usersList[userOnEdit].login = newLogin;
+        usersList[userOnEdit].password = newPw;
+        usersList[userOnEdit].name = newName;
+        usersList[userOnEdit].type = newType;
+    }
+    if (newLogin == currentUser.login) {
+        currentUser = usersList[userOnEdit];
+    }
+    saveUsers();
+    fillUsers();
 }

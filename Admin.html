@@ -29,13 +29,17 @@
         <main>
             <div id="userMenu" class="hidden">
                 <div id="userBody" class="user-body"></div>
-                <div id="userFooter" class="user-footer">
+                <div id="userFooter" class="item-footer">
                     <button onclick="onNewUser()"><spam class="fa fa-plus"></spam> Novo</button>
-                    <button><spam class="fa fa-save"></spam> Salvar</button>
+                    <button onclick="onSaveUser()"><spam class="fa fa-save"></spam> Salvar</button>
+                    <button onclick="onCancelUser()">Cancelar</button>
+                </div>
+                <div id="userFooterEdit" class="hidden">
+                    <button onclick="onSaveUserEdit()"><spam class="fa fa-save"></spam> Salvar</button>
                     <button onclick="onCancelUser()">Cancelar</button>
                 </div>
             </div>
-            <div id="questMenu" class="menu-quest">
+            <div id="questMenu" class="hidden">
                 <div class="header">
                     <button onclick="fillQuestions(1)">Trilha 1</button>
                     <button onclick="fillQuestions(2)">Trilha 2</button>
