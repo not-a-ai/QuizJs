@@ -128,7 +128,7 @@ main {
 }
 
 .menu-quest button {
-    font-size: 1rem;
+    font-size: 0.875rem;
 }
 
 .menu-quest button:hover {
@@ -191,4 +191,72 @@ main {
 
 .result-questions li .question_item .question_item_text {
     margin: 0px 5px;
+}
+
+.user-body {
+    color: #ffffff;
+    padding: 0px 0px 12px 0px;
+}
+
+h1 {
+    padding: 1rem;
+    font-size: 25px;
+}
+
+.user-body li .user_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 12px;
+}
+
+.user-body li .user_item button {
+    margin: 3px;
+    font-size: 0.875rem;
+}
+
+.user-body li .user_item .user_item_name {
+    margin: 0px 0px 0px 13px;
+}
+
+.menu-user .user-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-user .user-footer button {
+    margin: 4px;
+    font-size: 0.875rem;
+}
+
+#userList {
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    list-style-type: none;
+}
+
+#userList li {
+    background-color: rgba(9,9,9,0.3);
+    border-radius: 1rem;
+    margin: 1rem;
+    width: 100%;
+    opacity: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+#userList li:hover {
+    opacity: 100%;
+}
+
+.menu-user button:hover {
+    opacity: 70%;
+}
+
+.menu-user .user-body input {
+    background: none;
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    font-size: 17px;
 }

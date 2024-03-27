@@ -4,8 +4,10 @@ function onMenu(menuItem) {
     let item;
     hideAll();
     if (menuItem=='User') {
+        readUsers();
         item = document.getElementById("userMenu");
         item.setAttribute("class", "menu-user");
+        fillUsers();
     } else if (menuItem=='Quest') {
         item = document.getElementById("questMenu");
         item.setAttribute("class", "menu-quest");
@@ -30,23 +32,32 @@ function hideAll() {
     Gerenciamento de questões
 */
 function fillQuestions(selTrilha) {
-    trilha = selTrilha-1;
+    trilha = selTrilha - 1;
     readQuestions();
+    refreshQuestions();
+}
 
+function refreshQuestions() {
     let quadroQuiz = document.getElementById("questBody");
     quadroQuiz.innerHTML = "";
-
+    
     let ul = document.createElement("ul");
     ul.setAttribute("id", "questionList");
     for (let i = 0; i < perguntas.length; i++) {
         const pergunta = perguntas[i];
-
+    
         let li = document.createElement("li");
         li.setAttribute("id","question" + (i+1));
-
+    
         let div = document.createElement("div");
         div.setAttribute("class", "question_item");
         
+        // Botão Excluir
+        let btnDel = document.createElement("button");
+        btnDel.addEventListener("click", () => onClickDelete(i));
+        btnDel.setAttribute("class", "fa fa-trash");
+        div.appendChild(btnDel);
+    
         // Botão Editar
         let btnEd = document.createElement("button");
         btnEd.addEventListener("click", () => onClickEdit(i));
@@ -73,7 +84,7 @@ function fillQuestions(selTrilha) {
         let divQuest = document.createElement("div");
         divQuest.setAttribute("class", "question_item_text");
         divQuest.textContent = pergunta.questao;
-
+    
         div.appendChild(divQuest);
         li.appendChild(div);
         ul.appendChild(li);
@@ -85,7 +96,7 @@ function fillQuestions(selTrilha) {
     let editFooter = document.getElementById("editFooter");
     editFooter.removeAttribute("class");
     editFooter.setAttribute("class", "hidden");
-
+    
     ul.setAttribute("class", "result-questions");
     quadroQuiz.appendChild(ul);
 }
@@ -250,6 +261,19 @@ function onClickEdit(questionNumber) {
     questFooter.setAttribute("class", "hidden");
 }
 
+function onClickDelete(questionNumber) {
+    let newPerguntas = [];
+    let j = 0;
+    for (let i = 0; i < perguntas.length; i++) {
+        if (i != questionNumber) {
+            newPerguntas[j] = perguntas[i];
+            j++;
+        }
+    }
+    perguntas = newPerguntas;
+    refreshQuestions();
+}
+
 // Cancela a edição da questão atual.
 function onCancelQuestion() {
     onClickEdit(currentQuestion);
@@ -275,5 +299,111 @@ function onSaveQuestion() {
         perguntas[currentQuestion] = newQuestion;
     }
     saveQuestions();
-    fillQuestions(trilha + 1);
+    refreshQuestions();
+}
+
+/*
+    Funções de edição de usuários
+*/
+
+function fillUsers() {
+    let quadroMain = document.getElementById("userBody");
+    quadroMain.innerHTML = "";
+    
+    let h1 = document.createElement("h1");
+    h1.textContent = "Olá, " + currentUser.name + "!";
+    quadroMain.appendChild(h1);
+
+    let ul = document.createElement("ul");
+    ul.setAttribute("id", "userList");
+    for (let i = 0; i < usersList.length; i++) {
+        const singleUser = usersList[i];
+    
+        let li = document.createElement("li");
+        li.setAttribute("id","user" + (i+1));
+    
+        let div = document.createElement("div");
+        div.setAttribute("class", "user_item");
+        
+        // Botão Excluir
+        let btnDel = document.createElement("button");
+        btnDel.addEventListener("click", () => onDeleteUser(i));
+        btnDel.setAttribute("class", "fa fa-trash");
+        div.appendChild(btnDel);
+    
+        // Botão Editar
+        let btnEd = document.createElement("button");
+        btnEd.addEventListener("click", () => onEditUser(i));
+        btnEd.setAttribute("class", "fa fa-pen");
+        div.appendChild(btnEd);
+        
+        // Nome do usuário
+        let divUser = document.createElement("div");
+        divUser.setAttribute("class", "user_item_name");
+        divUser.textContent = singleUser.name;
+    
+        div.appendChild(divUser);
+        li.appendChild(div);
+        ul.appendChild(li);
+    }
+    quadroMain.appendChild(ul);
+}
+
+function onDeleteUser(idUser) {
+    // Não é possível excluir o próprio usuário
+    if (currentUser.login == usersList[idUser].login) {
+        return;
+    }
+    
+    let newUsers = [];
+    let j = 0;
+    for (let i = 0; i < usersList.length; i++) {
+        if (i != idUser) {
+            newUsers[j] = usersList[i];
+            j++;
+        }
+    }
+    usersList = newUsers;
+    fillUsers();
+}
+
+function onCancelUser() {
+    readUsers();
+    fillUsers();
+}
+
+function onNewUser() {
+    // Verifica o último número de id
+    let ul = document.getElementById("userList");
+    let lastIdText = "";
+    for (let i = 4; i < ul.lastChild.id.length; i++) {
+        lastIdText += ul.lastChild.id[i];
+    }
+    let lastId = Number(lastIdText) + 1;
+    
+    let li = document.createElement("li");
+    li.setAttribute("id","user" + lastId);
+
+    let div = document.createElement("div");
+    div.setAttribute("class", "user_item");
+    
+    // Botão Excluir
+    let btnDel = document.createElement("button");
+    btnDel.addEventListener("click", () => onDeleteUser(lastId));
+    btnDel.setAttribute("class", "fa fa-trash");
+    div.appendChild(btnDel);
+
+    // Botão Editar
+    let btnEd = document.createElement("button");
+    btnEd.addEventListener("click", () => onEditUser(lastId));
+    btnEd.setAttribute("class", "fa fa-pen");
+    div.appendChild(btnEd);
+    
+    // Nome do usuário
+    let divUser = document.createElement("input");
+    divUser.setAttribute("class", "user_item_name");
+
+    div.appendChild(divUser);
+    li.appendChild(div);
+    ul.appendChild(li);
 }

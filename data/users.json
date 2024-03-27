@@ -4,7 +4,7 @@
         "login": "usuario1",
         "password": "senha123",
         "name": "Bruno",
-        "type": "student"
+        "type": "professor"
       },
       {
         "login": "usuario2",
@@ -16,7 +16,7 @@
         "login": "usuario3",
         "password": "xyz789",
         "name": "Rodrigo",
-        "type": "professor"
+        "type": "student"
       }
     ]
   }
