@@ -1,0 +1,35 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60vh;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  padding: 1rem;
+
+}
+
+.level {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  transform: scale(1); 
+  transition: transform 0.3s ease-in-out; 
+}
+
+.block {
+  opacity: 50%;
+}
+
+.level:hover{
+  transform: scale(1.1);
+}
+

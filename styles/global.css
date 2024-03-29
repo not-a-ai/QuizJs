@@ -31,12 +31,10 @@ a {
 }
 
 .logo1 {
-  width: 200px;
   margin-top: 1rem;
 }
 .logo2 {
-  width: 200px;
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 button {

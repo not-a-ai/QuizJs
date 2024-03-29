@@ -227,7 +227,7 @@ function perguntasNoHtml(numeroQuestao) {
   // Botão Voltar
     let buttonVoltar = document.createElement("button");
     let aElement = document.createElement("a");
-    aElement.setAttribute("href", "/trilhas.html");
+    aElement.setAttribute("href", "/dashboard.html");
     
     let aText = document.createTextNode("Voltar");
     aElement.append(aText);
