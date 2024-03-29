@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/styles/global.css">
@@ -11,16 +11,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="https://online.igti.com.br/accounts/1/files/309117/download?verifier=u5CehW3uypIuN5ad6ZLMJfq7pZtNYduDy2gd9Zr8">
   <title>Quiz</title>
+  <script src="./scripts/LocalStorage.js"></script>
+  <script>
+    loadDefaultQuestions();
+    loadDefaultUsers();
+  </script>
 </head>
 <body>
   <img src="/images/logo1.png" alt="Logo XPE" class="logo1" >
   <main>
     <h1>Quiz</h1>
-    <button class="button" id="animated_button"><a href="/login.html" >Entrar</a></button>
+    <button class="button" id="animated_button"><a href="login.html" >Entrar</a></button>
     <!-- <button class="button">Criar conta</button> -->
   </main>
   <footer>
     <p>Todos os direitos reservados | XP Educação © 2024</p>
   </footer>
 </body>
+<script>
+  setTimeout(function() {
+    window.localStorage.setItem('saved-questions0', JSON.stringify(trilha1));
+    window.localStorage.setItem('saved-questions1', JSON.stringify(trilha2));
+    window.localStorage.setItem('saved-questions2', JSON.stringify(trilha3));
+    window.localStorage.setItem('users', JSON.stringify(usersList));
+  }, 2000);
+</script>
 </html>

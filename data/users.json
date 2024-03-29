@@ -2,16 +2,21 @@
     "users": [
       {
         "login": "usuario1",
-        "password": "senha123"
+        "password": "senha123",
+        "name": "Bruno",
+        "type": "professor"
       },
       {
         "login": "usuario2",
-        "password": "abc456"
+        "password": "abc456",
+        "name": "Fernanda",
+        "type": "student"
       },
       {
         "login": "usuario3",
-        "password": "xyz789"
+        "password": "xyz789",
+        "name": "Rodrigo",
+        "type": "student"
       }
     ]
   }
-  

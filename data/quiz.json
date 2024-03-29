@@ -1,0 +1,206 @@
+{
+    "trilha1": [
+        {
+            "questao": "O que é educação financeira?",
+            "alternativas": [
+                "A: A arte de ganhar muito dinheiro rapidamente.",
+                "B: O processo de aprender a administrar o dinheiro de forma consciente e responsável",
+                "C: O estudo da economia global.",
+                "D: A ciência de investir em ações."
+            ],
+            "alternativaCorreta": 1,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Qual é a importância de criar um orçamento pessoal?",
+            "alternativas": [
+                "A: Um orçamento ajuda a controlar seus gastos e garantir que você não gaste mais do que ganha.",
+                "B: Um orçamento é útil apenas para adultos.",
+                "C: Um orçamento só é necessário se você tiver uma renda alta.",
+                "D: Um orçamento é apenas uma sugestão e não precisa ser seguido à risca."
+            ],
+            "alternativaCorreta": 0,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "O que significa 'juros compostos'?",
+            "alternativas": [
+                "A: Juros que são calculados apenas uma vez ao ano.",
+                "B: Juros que são calculados sobre o valor inicial do investimento.",
+                "C: Juros que são calculados sobre o valor inicial do investimento e também sobre os juros acumulados anteriormente.",
+                "D: Juros que são aplicados somente a empréstimos, não a investimentos."
+            ],
+            "alternativaCorreta": 2,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Por que é importante ter um fundo de emergência?",
+            "alternativas": [
+                "A: Para ter dinheiro extra para gastar em compras impulsivas.",
+                "B: Para estar preparado para despesas inesperadas, como reparos de carro ou contas médicas.",
+                "C: Um fundo de emergência não é realmente necessário.",
+                "D: Para economizar para férias de luxo."
+            ],
+            "alternativaCorreta": 1,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "O que é um investimento de longo prazo?",
+            "alternativas": [
+                "A: Um investimento que dura menos de um ano.",
+                "B: Um investimento que dura mais de um ano.",
+                "C: Um investimento que não tem um prazo definido.",
+                "D: Um investimento que é considerado arriscado."
+            ],
+            "alternativaCorreta": 1,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Qual é a diferença entre uma conta poupança e uma conta corrente?",
+            "alternativas": [
+                "A: Uma conta poupança geralmente tem taxas de juros mais altas e é usada para economizar dinheiro, enquanto uma conta corrente é usada para transações diárias.",
+                "B: Uma conta corrente geralmente tem taxas de juros mais altas e é usada para economizar dinheiro, enquanto uma conta poupança é usada para transações diárias.",
+                "C: Ambas são usadas para economizar dinheiro, mas têm taxas de juros diferentes.",
+                "D: Ambas são usadas apenas para transações diárias."
+            ],
+            "alternativaCorreta": 0,
+            "alternativaSelecionada": null
+        }
+    ],
+    "trilha2" : [
+        {
+            "questao": "Qual é a diferença entre um cartão de crédito e um cartão de débito?",
+            "alternativas": [
+                "A: Um cartão de crédito permite que você gaste dinheiro que você não tem, enquanto um cartão de débito usa o dinheiro disponível em sua conta bancária.",
+                "B: Um cartão de débito permite que você gaste dinheiro que você não tem, enquanto um cartão de crédito usa o dinheiro disponível em sua conta bancária.",
+                "C: Não há diferença entre eles.",
+                "D: Ambos só podem ser usados para fazer compras online."
+            ],
+            "alternativaCorreta": 0,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Qual é a importância de criar um orçamento pessoal?",
+            "alternativas": [
+                "A: Um orçamento ajuda a controlar seus gastos e garantir que você não gaste mais do que ganha.",
+                "B: Um orçamento é útil apenas para adultos.",
+                "C: Um orçamento só é necessário se você tiver uma renda alta.",
+                "D: Um orçamento é apenas uma sugestão e não precisa ser seguido à risca."
+            ],
+            "alternativaCorreta": 0,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "O que significa 'juros compostos'?",
+            "alternativas": [
+                "A: Juros que são calculados apenas uma vez ao ano.",
+                "B: Juros que são calculados sobre o valor inicial do investimento.",
+                "C: Juros que são calculados sobre o valor inicial do investimento e também sobre os juros acumulados anteriormente.",
+                "D: Juros que são aplicados somente a empréstimos, não a investimentos."
+            ],
+            "alternativaCorreta": 2,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Por que é importante ter um fundo de emergência?",
+            "alternativas": [
+                "A: Para ter dinheiro extra para gastar em compras impulsivas.",
+                "B: Para estar preparado para despesas inesperadas, como reparos de carro ou contas médicas.",
+                "C: Um fundo de emergência não é realmente necessário.",
+                "D: Para economizar para férias de luxo."
+            ],
+            "alternativaCorreta": 1,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "O que é um investimento de longo prazo?",
+            "alternativas": [
+                "A: Um investimento que dura menos de um ano.",
+                "B: Um investimento que dura mais de um ano.",
+                "C: Um investimento que não tem um prazo definido.",
+                "D: Um investimento que é considerado arriscado."
+            ],
+            "alternativaCorreta": 1,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Qual é a diferença entre uma conta poupança e uma conta corrente?",
+            "alternativas": [
+                "A: Uma conta poupança geralmente tem taxas de juros mais altas e é usada para economizar dinheiro, enquanto uma conta corrente é usada para transações diárias.",
+                "B: Uma conta corrente geralmente tem taxas de juros mais altas e é usada para economizar dinheiro, enquanto uma conta poupança é usada para transações diárias.",
+                "C: Ambas são usadas para economizar dinheiro, mas têm taxas de juros diferentes.",
+                "D: Ambas são usadas apenas para transações diárias."
+            ],
+            "alternativaCorreta": 0,
+            "alternativaSelecionada": null
+        }
+    ],
+    "trilha3" : [
+        {
+            "questao": "O que é um ativo financeiro?",
+            "alternativas": [
+                "A: Um bem que não tem valor monetário.",
+                "B: Uma dívida a ser paga.",
+                "C: Um investimento que pode gerar renda.",
+                "D: Dinheiro guardado em casa."
+            ],
+            "alternativaCorreta": 2,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Qual é a importância de criar um orçamento pessoal?",
+            "alternativas": [
+                "A: Um orçamento ajuda a controlar seus gastos e garantir que você não gaste mais do que ganha.",
+                "B: Um orçamento é útil apenas para adultos.",
+                "C: Um orçamento só é necessário se você tiver uma renda alta.",
+                "D: Um orçamento é apenas uma sugestão e não precisa ser seguido à risca."
+            ],
+            "alternativaCorreta": 0,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "O que significa 'juros compostos'?",
+            "alternativas": [
+                "A: Juros que são calculados apenas uma vez ao ano.",
+                "B: Juros que são calculados sobre o valor inicial do investimento.",
+                "C: Juros que são calculados sobre o valor inicial do investimento e também sobre os juros acumulados anteriormente.",
+                "D: Juros que são aplicados somente a empréstimos, não a investimentos."
+            ],
+            "alternativaCorreta": 2,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Por que é importante ter um fundo de emergência?",
+            "alternativas": [
+                "A: Para ter dinheiro extra para gastar em compras impulsivas.",
+                "B: Para estar preparado para despesas inesperadas, como reparos de carro ou contas médicas.",
+                "C: Um fundo de emergência não é realmente necessário.",
+                "D: Para economizar para férias de luxo."
+            ],
+            "alternativaCorreta": 1,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "O que é um investimento de longo prazo?",
+            "alternativas": [
+                "A: Um investimento que dura menos de um ano.",
+                "B: Um investimento que dura mais de um ano.",
+                "C: Um investimento que não tem um prazo definido.",
+                "D: Um investimento que é considerado arriscado."
+            ],
+            "alternativaCorreta": 1,
+            "alternativaSelecionada": null
+        },
+        {
+            "questao": "Qual é a diferença entre uma conta poupança e uma conta corrente?",
+            "alternativas": [
+                "A: Uma conta poupança geralmente tem taxas de juros mais altas e é usada para economizar dinheiro, enquanto uma conta corrente é usada para transações diárias.",
+                "B: Uma conta corrente geralmente tem taxas de juros mais altas e é usada para economizar dinheiro, enquanto uma conta poupança é usada para transações diárias.",
+                "C: Ambas são usadas para economizar dinheiro, mas têm taxas de juros diferentes.",
+                "D: Ambas são usadas apenas para transações diárias."
+            ],
+            "alternativaCorreta": 0,
+            "alternativaSelecionada": null
+        }
+    ]
+}
