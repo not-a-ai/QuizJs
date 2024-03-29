@@ -39,6 +39,7 @@ function mostrarResultados() {
       erros++
     }
 
+
     let h3 = document.createElement("h3");
     h3.textContent = pergunta.questao;
 
@@ -87,12 +88,20 @@ function mostrarResultados() {
 
   let buttonBack = document.createElement("button");
   buttonBack.setAttribute("id", "responder");
-  buttonBack.addEventListener("click", () => (window.location = "/trilhas.html"));
+  buttonBack.addEventListener("click", () => (window.location = "/level.html"));
   buttonBack.textContent = "Voltar";
 
   divResposta.appendChild(buttonRedo);
   divResposta.appendChild(buttonBack);
   quadroQuiz.appendChild(divResposta);
+   
+  //calculo do xp
+  if (acertos > 5) {
+    let xpExistente = window.localStorage.getItem('xp');
+    xpExistente = xpExistente ? parseInt(xpExistente) : 0;
+    const xpAtualizado = xpExistente + acertos * 10;
+    window.localStorage.setItem('xp', xpAtualizado);
+  }
 }
 
 function onClickProximo() {
@@ -200,7 +209,6 @@ function perguntasNoHtml(numeroQuestao) {
   h2.setAttribute("id", "pergunta");
   h2.textContent = (perguntaAtual + 1) + ' - ' + perguntas[numeroQuestao].questao;
   quadroQuiz.appendChild(h2);
-  console.log(perguntas[0])
   let divQuestoes = document.createElement("div");
   divQuestoes.setAttribute("id", "questoes");
 
@@ -245,6 +253,8 @@ function perguntasNoHtml(numeroQuestao) {
   quadroQuiz.appendChild(divResposta);
 
   quadroQuiz.setAttribute('class', 'animate__animated animate__fadeInRight')
+
+ 
 }
 
 function readQuestions() {

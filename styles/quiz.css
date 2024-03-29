@@ -63,6 +63,10 @@
 .result {
   margin: 1rem;
 }
+
+.logo1 {
+  width: 5rem;
+}
 ul {
   list-style-type: none;
 }
