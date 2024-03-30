@@ -15,6 +15,23 @@ section {
 
 }
 
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: last baseline;
+  width: 100vw;
+  height: 10vh;
+  justify-items: last start;
+}
+
+#logoLevel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
 .level {
   display: flex;
   flex-direction: row;

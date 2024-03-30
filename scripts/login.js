@@ -18,19 +18,16 @@ function onLogin() {
     document.getElementById("session_pw").value = "";
     readUsers();
     if (checkLogin(userName, passwordText)) {
-<<<<<<< HEAD
         // Abre a página inicial do quiz
         window.open("dashboard.html", '_self');
-=======
         saveUsers();
         if (currentUser.type == "student") {
             // Abre a página inicial do quiz
-            window.location.replace("trilhas.html");
+            window.location.replace("dashboard.html");
         } else {
             // Abre o Painel de Controle
             window.location.replace("Admin.html");
         }
->>>>>>> 9e5d6a4a505585592463de2f5a6f096384887d0e
     } else {
         // Exibe mensagem de erro
         document.getElementById("Warning-Frame").classList.remove("hidden");

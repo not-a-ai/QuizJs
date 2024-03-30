@@ -65,6 +65,7 @@ section h3 {
 #progresso-card {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   height: 80%;
   width: 100%;
   align-items: center;
@@ -72,7 +73,7 @@ section h3 {
   gap: 1rem;
 } 
   #progresso-card img {
-    width: 50%;
+
     border-radius: 50%;
   }
 
@@ -120,7 +121,7 @@ section h3 {
   }
 
 .lock {
-  opacity: 0.5;
+  opacity: 0.3;
   pointer-events: none;
 }
 
@@ -145,14 +146,24 @@ section h3 {
 }
 
 #medalha-box {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-content: space-evenly;
+  justify-items: center;
   align-items: center;
   justify-content: space-around;
   height: 100%;
+  width: 100%;
   color: #fff;
   text-align: center;
+
+  overflow: hidden;
 }
+  #medalha-box img {
+    width: inherit;
+    height: auto;
+  }
 
 
 
