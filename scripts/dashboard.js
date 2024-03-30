@@ -44,3 +44,8 @@ if(valor < 420) {
 if(valor < 500) {
   med6.setAttribute('class', 'lock')
 }
+
+//logout 
+ function clearuser() {
+  window.localStorage.removeItem('currentUser');
+ }

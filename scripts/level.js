@@ -1,6 +1,6 @@
 let l2 = document.getElementById("two");
 if (window.localStorage.getItem('xp') < 60) {
-  l2.setAttribute("block")
+  l2.setAttribute("class", "block level")
 }
 
 let l3 = document.getElementById("three");
