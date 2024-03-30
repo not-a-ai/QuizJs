@@ -1,3 +1,5 @@
+import usersList from '../data/users.json'
+
 function checkLogin(userName, passwordText) {
     for (let index = 0; index < usersList.length; index++) {
         const singleUser = usersList[index];
