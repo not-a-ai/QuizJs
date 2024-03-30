@@ -164,7 +164,12 @@ section h3 {
     width: inherit;
     height: auto;
   }
-
+  
+#logout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
 
 
