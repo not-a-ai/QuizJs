@@ -1,4 +1,10 @@
-import usersList from '../data/users.json'
+fetch('../data/users.json')
+  .then(response => response.json())
+  .then(data => {
+    usersList = data 
+  })
+  .catch(error => console.error('Erro ao carregar o JSON:', error));
+
 
 function checkLogin(userName, passwordText) {
     for (let index = 0; index < usersList.length; index++) {
