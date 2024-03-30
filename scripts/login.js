@@ -20,6 +20,7 @@ function checkLogin(userName, passwordText) {
 function onLogin() {
     let userName = document.getElementById("unique_id").value;
     let passwordText = document.getElementById("session_pw").value;
+    
 
     // Apaga os valores digitados nos campos
     document.getElementById("unique_id").value = "";
